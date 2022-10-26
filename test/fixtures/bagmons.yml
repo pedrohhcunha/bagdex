@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  identificator: MyString
   name: MyString
-  color: MyString
+  photo: MyString
+  category: MyString
 
 two:
+  identificator: MyString
   name: MyString
-  color: MyString
+  photo: MyString
+  category: MyString

@@ -1,5 +1,8 @@
 {
   "name": "bagbag",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@popperjs/core": "2.0.0-alpha.1",
+    "bootstrap": "5.0.0-beta2"
+  }
 }

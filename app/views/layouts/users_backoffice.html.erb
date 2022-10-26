@@ -12,7 +12,6 @@
 
   <body>
     <%= link_to "<- Logoff", destroy_user_session_path, method: :delete %>
-    <p class="notice"><%= notice %></p>
     <%= current_user ? current_user.email : '' %>
     <%= yield %>
   </body>

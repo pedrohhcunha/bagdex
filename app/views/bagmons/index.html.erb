@@ -1,0 +1,28 @@
+<div class="container d-flex flex-row justify-content-between mb-3">
+  <h1 class="title">Bagmons</h1>
+  <div class="actions">
+    <%= link_to "New Bagmon", new_bagmon_path, class: "btn btn-primary" %>
+  </div>
+</div>
+<div class="container">
+  <div class="row row-cols-4 gap-3">
+    <% @bagmons.each do |bagmon| %>
+      <div class="card">
+        <%= image_tag bagmon.photo, html: {class: "card-img-top"} %>
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= bagmon.name %>
+          </h5>
+          <p class="card-text">
+            Tipo de Bagmon: <%= bagmon.category.name %>
+          </p>
+          <div class="btn-group" role="group">
+            <%= link_to "Show", bagmon, class: "btn btn-primary" %>
+            <%= link_to "Edit", edit_bagmon_path(bagmon), class: "btn btn-warning" %>
+            <%= link_to "Destroy", bagmon, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
