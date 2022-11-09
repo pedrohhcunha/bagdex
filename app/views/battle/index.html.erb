@@ -1,25 +1,34 @@
-<h1 class="text-center mb-3">Battle</h1>
 
-<form class="container d-flex flex-column gap-3 w-50">
-    <div class="d-flex flex-row gap-3">
-        <div class="form-group w-50">
-            <label for="battle1">Bagmon 1</label>
-            <select id="battle1" name="battle1" class="form-control">
-                <option selected>Selecione...</option>
-                <% @bagmons.each do |bagmon| %>
-                    <option value="<%= bagmon.id %>"><%= bagmon.name %></option>
-                <% end %>
-            </select>
-        </div>
-        <div class="form-group w-50">
-            <label for="battle2">Bagmon 2</label>
-            <select id="battle2" name="battle2" class="form-control">
-                <option selected>Selecione...</option>
-                <% @bagmons.each do |bagmon| %>
-                    <option value="<%= bagmon.id %>"><%= bagmon.name %></option>
-                <% end %>
-            </select>
-        </div>
+<% if @bagmon1 && @bagmon2 %>
+    <div class="container d-flex flex-column gap-3">
+        <h2 class="text-center">Resultado</h2>
+        <% @rounds.each do |round| %>
+            <p class="text-center"><%= round %></p>
+        <% end %>
     </div>
-    <button type="submit" class="btn btn-primary">Battle</button>
-</form>
+<% else %>
+    <h1 class="text-center mb-3">Escolha 2 oponentes</h1>
+    <form action="/battle" class="container d-flex flex-column gap-3 w-50">
+        <div class="d-flex flex-row gap-3">
+            <div class="form-group w-50">
+                <label for="bagmon1">Bagmon 1</label>
+                <select required id="bagmon1" name="bagmon1" class="form-control">
+                    <option selected disabled>Selecione...</option>
+                    <% @bagmons.each do |bagmon| %>
+                        <option value="<%= bagmon.id %>"><%= bagmon.name %></option>
+                    <% end %>
+                </select>
+            </div>
+            <div class="form-group w-50">
+                <label for="bagmon2">Bagmon 2</label>
+                <select required id="bagmon2" name="bagmon2" class="form-control">
+                    <option selected disabled>Selecione...</option>
+                    <% @bagmons.each do |bagmon| %>
+                        <option value="<%= bagmon.id %>"><%= bagmon.name %></option>
+                    <% end %>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Battle</button>
+    </form>
+<% end %>
