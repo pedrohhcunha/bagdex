@@ -1,4 +1,4 @@
-class BattleController < ApplicationController
+class BattleController < UsersBackofficeController
   def index
     @bagmons = Bagmon.all
 
